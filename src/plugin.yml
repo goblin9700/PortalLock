@@ -3,11 +3,21 @@ main: portalLock.PortalLock
 author: goblin9700
 version: 0.1
 
+commands:
+  portallock:
+    description: portallock reload
+    permission: portallock.reload
+    usage: /portallock reload
+    
 permissions:
     portallock.*:
         description: Gives access to all plugin's command
         children:
             portalloc.ignore: true
+            portallock.reload: true
     portallock.ignore:
         description: Allows you to create portal
+        default: op
+    portallock.reload:
+        description: Allows reload plugin
         default: op

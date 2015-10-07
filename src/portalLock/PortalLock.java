@@ -11,6 +11,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.world.PortalCreateEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import Command.PLCommand;
+
 public class PortalLock extends JavaPlugin{
 	
 	
@@ -33,10 +35,10 @@ public class PortalLock extends JavaPlugin{
 		
 		getServer().getPluginManager().registerEvents(new PortalCreater(), this);
 		
-		
+		getCommand("portallock").setExecutor(new PLCommand(this));
 	}
 	
-	private void loadConfig() {
+	public void loadConfig() {
 		FileConfiguration config = YamlConfiguration.loadConfiguration(new File(this.getDataFolder(), "config.yml"));
 		enableLock = config.getBoolean("enable");
 		
