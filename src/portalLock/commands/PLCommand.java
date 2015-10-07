@@ -1,4 +1,4 @@
-package Command;
+package portalLock.commands;
 
 import net.md_5.bungee.api.ChatColor;
 

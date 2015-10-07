@@ -11,7 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.world.PortalCreateEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import Command.PLCommand;
+import portalLock.commands.PLCommand;
 
 public class PortalLock extends JavaPlugin{
 	
