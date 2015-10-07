@@ -19,7 +19,7 @@ public class Main extends JavaPlugin implements Listener {
 	
 	@Override
 	public void onDisable() {
-		
+		log.info("PortalLoc has disabled.");
 	}
 	
 	@EventHandler
