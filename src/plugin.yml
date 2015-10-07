@@ -2,3 +2,12 @@ name: PortalLock
 main: portalLock.PortalLock
 author: goblin9700
 version: 0.1
+
+permissions:
+    portallock.*:
+        description: Gives access to all plugin's command
+        children:
+            portalloc.ignore: true
+    portallock.ignore:
+        description: Allows you to create portal
+        default: op

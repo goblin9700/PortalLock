@@ -5,6 +5,7 @@ import java.io.File;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.FileConfigurationOptions;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.PortalCreateEvent;
@@ -55,7 +56,12 @@ public class PortalLock extends JavaPlugin{
 		@EventHandler
 		public void portalLock(PortalCreateEvent event) {
 			if (enableLock) {
-				event.setCancelled(true);
+				for(Player player: getServer().getOnlinePlayers()) {
+					if(!player.hasPermission("portallock.ignore")) {
+						event.setCancelled(true);
+						player.sendMessage("Создание порталов запрещено.");
+					}
+				}
 			}
 		}
 	}

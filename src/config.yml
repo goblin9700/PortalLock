@@ -1,5 +1,8 @@
 # Config file of the PortalLock
 #
+#Permission:
+#  portallock.ignore
+#     
 #
 #
 enable: true
