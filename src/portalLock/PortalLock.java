@@ -55,7 +55,6 @@ public class PortalLock extends JavaPlugin{
 		@EventHandler
 		public void portalLock(PortalCreateEvent event) {
 			if (enableLock) {
-				
 				event.setCancelled(true);
 			}
 		}
