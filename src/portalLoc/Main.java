@@ -24,7 +24,9 @@ public class Main extends JavaPlugin implements Listener {
 	
 	@EventHandler
 	public void portalLoc(PortalCreateEvent event) {
+		event.getPlayer().sendMessage("Create portal has disable.");
 		event.setCancelled(true);
+		
 		
 	}
 
