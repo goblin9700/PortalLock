@@ -6,3 +6,8 @@
 #
 #
 enable: true
+
+messages:
+  reload: '&aPortalLock configuration reloaded.'
+  nopermission: '&cYou dont have permission.'
+  denycreate: '&cNot allow create portals'

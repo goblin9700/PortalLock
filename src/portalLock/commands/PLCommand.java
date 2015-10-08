@@ -1,7 +1,5 @@
 package portalLock.commands;
 
-import net.md_5.bungee.api.ChatColor;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -26,9 +24,10 @@ public class PLCommand implements CommandExecutor {
 					if (sender.hasPermission("portallock.reload")) {
 						plugin.reloadConfig();
 						plugin.loadConfig();
-						sender.sendMessage(ChatColor.GREEN + "PortalLock configuration reloaded");
+						
+						sender.sendMessage(plugin.messReload);
 					}else{
-						sender.sendMessage(ChatColor.RED + "You don't have permission.");
+						sender.sendMessage(plugin.messNoPerm);
 					}
 				}
 			}

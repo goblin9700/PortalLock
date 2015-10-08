@@ -1,6 +1,9 @@
+
 package portalLock;
 
 import java.io.File;
+
+import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.FileConfigurationOptions;
@@ -20,6 +23,9 @@ public class PortalLock extends JavaPlugin{
 	protected static PortalLock plugin;
 	protected FileConfigurationOptions config;
 	public Boolean enableLock;
+	public String messReload;
+	public String messNoPerm;
+	public String messDenyCreate;
 	
 	@Override
 	public void onEnable() {
@@ -27,7 +33,6 @@ public class PortalLock extends JavaPlugin{
 		plugin = this;
 		
 		plugin.getLogger().info("PortalLoc on enabled.");
-		plugin.getLogger().info("Создание порталов отключено.");
 		
 		config = getConfig().options().copyDefaults(true);
 		
@@ -39,8 +44,13 @@ public class PortalLock extends JavaPlugin{
 	}
 	
 	public void loadConfig() {
+		
 		FileConfiguration config = YamlConfiguration.loadConfiguration(new File(this.getDataFolder(), "config.yml"));
+		
 		enableLock = config.getBoolean("enable");
+		messReload = ChatColor.translateAlternateColorCodes('&', config.getString("messages.reload"));
+		messNoPerm = ChatColor.translateAlternateColorCodes('&', config.getString("messages.nopermission"));
+		messDenyCreate = ChatColor.translateAlternateColorCodes('&', config.getString("messages.denycreate"));
 		
 		saveConfig();
 		plugin.getLogger().info("Configuration succeful loaded.");
@@ -61,7 +71,7 @@ public class PortalLock extends JavaPlugin{
 				for(Player player: getServer().getOnlinePlayers()) {
 					if(!player.hasPermission("portallock.ignore")) {
 						event.setCancelled(true);
-						player.sendMessage("Создание порталов запрещено.");
+						player.sendMessage(plugin.messDenyCreate);
 					}
 				}
 			}
