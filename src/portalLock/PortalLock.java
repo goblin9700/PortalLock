@@ -6,7 +6,6 @@ import java.io.File;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.FileConfigurationOptions;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -21,7 +20,7 @@ public class PortalLock extends JavaPlugin{
 	
 	
 	protected static PortalLock plugin;
-	protected FileConfigurationOptions config;
+	protected YamlConfiguration config;
 	public Boolean enableLock;
 	public String messReload;
 	public String messNoPerm;
@@ -33,9 +32,10 @@ public class PortalLock extends JavaPlugin{
 		plugin = this;
 		
 		plugin.getLogger().info("PortalLoc on enabled.");
-		
-		config = getConfig().options().copyDefaults(true);
-		
+		getConfig().options().copyDefaults(true);
+		saveDefaultConfig();
+		saveConfig();
+		//reloadConfig();
 		loadConfig();
 		
 		getServer().getPluginManager().registerEvents(new PortalCreater(), this);
@@ -43,9 +43,9 @@ public class PortalLock extends JavaPlugin{
 		getCommand("portallock").setExecutor(new PLCommand(this));
 	}
 	
-	public void loadConfig() {
+	public void loadConfig() {	
 		
-		FileConfiguration config = YamlConfiguration.loadConfiguration(new File(this.getDataFolder(), "config.yml"));
+		FileConfiguration config = YamlConfiguration.loadConfiguration(new File(this.getDataFolder(),"config.yml"));
 		
 		enableLock = config.getBoolean("enable");
 		messReload = ChatColor.translateAlternateColorCodes('&', config.getString("messages.reload"));
