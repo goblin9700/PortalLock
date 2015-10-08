@@ -64,14 +64,17 @@ public class PortalLock extends JavaPlugin{
 	
 	
 	private class PortalCreater implements Listener {
-		
+
 		@EventHandler
 		public void portalLock(PortalCreateEvent event) {
+
 			if (enableLock) {
+				
 				for(Player player: getServer().getOnlinePlayers()) {
+
 					if(!player.hasPermission("portallock.ignore")) {
-						event.setCancelled(true);
 						player.sendMessage(plugin.messDenyCreate);
+						event.setCancelled(true);
 					}
 				}
 			}

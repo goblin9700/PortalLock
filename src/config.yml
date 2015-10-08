@@ -10,4 +10,4 @@ enable: true
 messages:
   reload: '&aPortalLock configuration reloaded.'
   nopermission: '&cYou dont have permission.'
-  denycreate: '&cNot allow create portals'
+  denycreate: '&cNot allowed to create portal.'
