@@ -4,7 +4,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
 import portalLock.PortalLock;
 
 public class PLCommand implements CommandExecutor {
@@ -24,7 +23,6 @@ public class PLCommand implements CommandExecutor {
 					if (sender.hasPermission("portallock.reload")) {
 						plugin.reloadConfig();
 						plugin.loadConfig();
-						
 						sender.sendMessage(plugin.messReload);
 					}else{
 						sender.sendMessage(plugin.messNoPerm);
@@ -35,8 +33,6 @@ public class PLCommand implements CommandExecutor {
 			sender.sendMessage("PortalLock " + "This is an in-game only command");
 			return true;
 		}
-		
 		return false;
 	}
-
 }
