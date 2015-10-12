@@ -33,9 +33,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import portalLock.commands.PLCommand;
 
 public class PortalLock extends JavaPlugin{
-	
-	
-	
+		
 	protected static PortalLock plugin;
 	protected YamlConfiguration config;
 	public Boolean enableLock;
@@ -52,7 +50,6 @@ public class PortalLock extends JavaPlugin{
 		getConfig().options().copyDefaults(true);
 		saveDefaultConfig();
 		saveConfig();
-		//reloadConfig();
 		loadConfig();
 		
 		getServer().getPluginManager().registerEvents(new PortalCreater(), this);
@@ -76,19 +73,13 @@ public class PortalLock extends JavaPlugin{
 	@Override
 	public void onDisable() {
 		plugin.getLogger().info("PortalLoc has disabled.");
-	}
-	
-	
+	}	
 	
 	private class PortalCreater implements Listener {
-
 		@EventHandler
 		public void portalLock(PortalCreateEvent event) {
-
-			if (enableLock) {
-				
+			if (enableLock) {				
 				for(Player player: getServer().getOnlinePlayers()) {
-
 					if(!player.hasPermission("portallock.ignore")) {
 						player.sendMessage(plugin.messDenyCreate);
 						event.setCancelled(true);
@@ -97,5 +88,4 @@ public class PortalLock extends JavaPlugin{
 			}
 		}
 	}
-
 }
