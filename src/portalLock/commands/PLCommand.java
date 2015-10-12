@@ -33,6 +33,6 @@ public class PLCommand implements CommandExecutor {
 			sender.sendMessage("PortalLock " + "This is an in-game only command");
 			return true;
 		}
-		return false;
+		return true;
 	}
 }
