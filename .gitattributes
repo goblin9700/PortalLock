@@ -1,2 +1,6 @@
  
+<<<<<<< HEAD
 *.txt encoding=cp1251
+=======
+*.txt encoding=cp1251
+>>>>>>> branch 'master' of https://github.com/goblin9700/PortalLock.git
